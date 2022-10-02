@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Feggah</title>
-    <link>http://www.feggah.com/</link>
+    <link>https://feggah.com/</link>
     <description>Recent content on Feggah</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt-br</language><atom:link href="http://www.feggah.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://feggah.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Sobre mim</title>
-      <link>http://www.feggah.com/about/</link>
+      <title>About me</title>
+      <link>https://feggah.com/about/</link>
       <pubDate>Thu, 24 Feb 2022 06:18:29 -0300</pubDate>
       
-      <guid>http://www.feggah.com/about/</guid>
-      <description>Meu nome é Gabriel Ferreira, trabalho como engenheiro DevOps e gosto de desenvolver plataformas internas para facilitar a vida dos clientes internos, buscando principalmente aumentar sua produtividade e autonomia. Contribuo para o projeto open-source Crossplane, onde sou maintainer do repositório provider-gcp.
-Cheguei em DevOps a partir da área de desenvolvimento, e não de operações (que sinto que é o caminho mais comum). Isso reflete muito no meu trabalho, já que sou o tipo de DevOps que defende (e prefere) developing over operating.</description>
+      <guid>https://feggah.com/about/</guid>
+      <description>My name is Gabriel Ferreira, I&amp;rsquo;m from Brazil, I work as a Platform Engineer and I like to develop internal developer platforms to help company&amp;rsquo;s internal clients (usually developers), primarily seeking to improve their productivity and autonomy. I&amp;rsquo;m pasionate about open-source and I contribute to Crossplane, where I&amp;rsquo;m maintainer of the provider-gcp repository.
+I came from development before entering to the DevOps space. This reflects at my work, because I&amp;rsquo;m a DevOps engineer who defends (and prefer) developing over operating.</description>
     </item>
     
   </channel>

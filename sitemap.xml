@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.feggah.com/about/</loc>
+    <loc>https://feggah.com/about/</loc>
     <lastmod>2022-02-24T06:18:29-03:00</lastmod>
   </url><url>
-    <loc>http://www.feggah.com/authors/</loc>
+    <loc>https://feggah.com/authors/</loc>
   </url><url>
-    <loc>http://www.feggah.com/categories/</loc>
+    <loc>https://feggah.com/categories/</loc>
   </url><url>
-    <loc>http://www.feggah.com/</loc>
+    <loc>https://feggah.com/</loc>
   </url><url>
-    <loc>http://www.feggah.com/series/</loc>
+    <loc>https://feggah.com/series/</loc>
   </url><url>
-    <loc>http://www.feggah.com/tags/</loc>
+    <loc>https://feggah.com/tags/</loc>
   </url>
 </urlset>

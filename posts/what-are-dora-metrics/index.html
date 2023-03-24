@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Gabriel Ferreira">
+    <meta name="description" content="What are DORA metrics and its the common antipatterns?">
+    <meta name="keywords" content="blog,developer,personal,devops">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://feggah.com/img/avatar.jpeg"/>
+
+<meta name="twitter:title" content="What are DORA metrics?"/>
+<meta name="twitter:description" content="What are DORA metrics and its the common antipatterns?"/>
+
+    <meta property="og:title" content="What are DORA metrics?" />
+<meta property="og:description" content="What are DORA metrics and its the common antipatterns?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://feggah.com/posts/what-are-dora-metrics/" /><meta property="og:image" content="https://feggah.com/img/avatar.jpeg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-23T10:07:22-03:00" />
+<meta property="article:modified_time" content="2023-03-23T10:07:22-03:00" />
+
+
+
+    <title>
+  What are DORA metrics? · Feggah
+</title>
+
+    
+      <link rel="canonical" href="https://feggah.com/posts/what-are-dora-metrics/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.92.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-35LWRSBSH4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <a class="navigation-title" href="/">
+      Feggah
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://feggah.com/posts/what-are-dora-metrics/">
+              What are DORA metrics?
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2023-03-23T10:07:22-03:00'>
+                March 23, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/devops/">DevOps</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/dora/">DORA</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <blockquote>
+<p>This post has my opinionated ideas about this topic. We don&rsquo;t need to agree, but it&rsquo;s important to use it as a starting point to discuss.</p>
+</blockquote>
+<p>DORA provides a clear approach to understanding the effectiveness of a software delivery process. One of the keys of DORA is that it doesn&rsquo;t attempt to measure productivity, instead, they are focused on measuring velocity and stability.</p>
+<p>There are four key metrics divided into two groups that are used to measure the performance of teams. These metrics create visibility and data that can be used for improvements and decision-making.</p>
+<p><img src="/static/dora-metrics.png" alt="dora-metrics"></p>
+<p><strong>Deployment Frequency</strong></p>
+<ul>
+<li>Frequency of successful releases deployed to production. The frequencies are <em>daily</em>, <em>weekly</em>, <em>monthly</em> or <em>yearly</em>.</li>
+</ul>
+<p>It is important to note that <strong>frequency</strong> is not <strong>volume</strong>. What I mean by that is, for example, if your team had 30 deployments in the last month, it doesn&rsquo;t necessarily mean that your frequency was daily. All these deployments could have happened in the last week of the month.</p>
+<p><strong>Lead Time for Changes</strong></p>
+<ul>
+<li>The median amount of time between a commit made and its artifact deployed into production.</li>
+</ul>
+<p><strong>Mean Time to Recovery (MTTR)</strong></p>
+<ul>
+<li>The median amount of time between the start and remediation of an incident.</li>
+</ul>
+<p><strong>Change Failure Rate</strong></p>
+<ul>
+<li>The division between the number of failed deployments by the total number of deployments.</li>
+</ul>
+<h1 id="what-is-a-successful-or-failed-deployment">
+  What is a successful or failed deployment?
+  <a class="heading-link" href="#what-is-a-successful-or-failed-deployment">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>That&rsquo;s the tricky part. I can&rsquo;t define precisely what is a successful or failed deployment for all applications and use cases, but we can try to cover most of them.</p>
+<p>With all these metrics, the thing that we are most concerned with is the experience that the user is having. In other words, for a deployment to be considered successful it <strong>has</strong> to reach the user. To be considered a failure, it <strong>has</strong> to reach production and <strong>impact</strong> the users. What this means is:</p>
+<ul>
+<li>If a deployment failed to build and didn&rsquo;t reach production, we don&rsquo;t care about it.</li>
+<li>If your CD pipeline waits for the new version to be ready/health, but it reaches a timeout and the pipeline does a rollback to the latest health version <strong>before</strong> the traffic was changed to the new version (the users didn&rsquo;t experience a failure), we don&rsquo;t care about it.</li>
+</ul>
+<h2 id="what-are-the-implications-of-this-definition">
+  What are the implications of this &ldquo;definition&rdquo;?
+  <a class="heading-link" href="#what-are-the-implications-of-this-definition">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<p>The implication is how we classify deployments as failures. With this classification, we can understand how to extract the stability metrics (MTTR and Change Failure Rate).</p>
+<p>The main implication is: <strong>A deployment is classified as a <em>failed deployment</em> if any incident happened during the time it was active.</strong></p>
+<p>Why is that? Because an incident can be one of the best ways to know if we are having any problems in production.</p>
+<p>This implication is reflected in the earlier definition of Mean Time to Recovery (MTTR).</p>
+<blockquote>
+<p>The median amount of time between the start and remediation of an incident.</p>
+</blockquote>
+<p>I think you could have asked: <em>Why should I use the time between the start and remediation of an incident, rather than the time between the deployment and remediation of an incident?</em></p>
+<p>That&rsquo;s because the root cause of a failure isn&rsquo;t always the deployment. Let&rsquo;s explain it with an example: your team has deployed a new version of an application and, two weeks later, someone accidentally deletes the database in production.</p>
+<p>In this case, an incident is triggered because the application isn&rsquo;t healthy anymore. One week later, the incident is solved because the database was recovered.</p>
+<p>The amount of time that the user was experiencing a failure is <strong>one week</strong>, not <strong>three weeks</strong>. The image below represents this use case:</p>
+<p><img src="/static/failed-deployment-classification.png" alt="failed-deployments-classification"></p>
+<h1 id="antipatterns">
+  Antipatterns
+  <a class="heading-link" href="#antipatterns">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>With these metrics in place, there are some common misuses of them that we can classify as antipatterns.</p>
+<h4 id="comparison-of-teams">
+  Comparison of teams
+  <a class="heading-link" href="#comparison-of-teams">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
+<p>We are not measuring performance and should not use these metrics to compare different teams.</p>
+<p>Each team has a different context, which makes their performance unique to their constraints.</p>
+<h4 id="metrics-as-goals">
+  Metrics as goals
+  <a class="heading-link" href="#metrics-as-goals">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
+<p>We should not make metrics become the goal. Metrics should be a means to an end.</p>
+<p>High performing organization focus on improving how they deliver value. The goals should focus on business outcomes, and not the metrics.</p>
+<h1 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>I found the video <a href="https://youtu.be/2rzvIL29Nz0">Measuring DevOps: The Four Keys Project</a> one of the best easy-to-consume references to this topic. If you want to deep more into the topic, I would recommend:</p>
+<ul>
+<li>The Google Cloud blog post <a href="https://cloud.google.com/blog/products/devops-sre/the-2019-accelerate-state-of-devops-elite-performance-productivity-and-scaling">The 2019 Accelerate State of DevOps: Elite performance, productivity, and scaling</a>.</li>
+<li>The book <a href="https://www.amazon.com/Accelerate-Software-Performing-Technology-Organizations/dp/1942788339">Accelerate: The Science of Lean Software and DevOps</a>.</li>
+</ul>
+<p>If you have any questions, suggestions or want to discuss the topic even further, <a href="https://twitter.com/feggah_">reach me out on Twitter</a>!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Gabriel Ferreira 
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

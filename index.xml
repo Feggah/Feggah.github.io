@@ -5,7 +5,19 @@
     <link>https://feggah.com/</link>
     <description>Recent content on Feggah</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://feggah.com/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 23 Mar 2023 10:07:22 -0300</lastBuildDate><atom:link href="https://feggah.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What are DORA metrics?</title>
+      <link>https://feggah.com/posts/what-are-dora-metrics/</link>
+      <pubDate>Thu, 23 Mar 2023 10:07:22 -0300</pubDate>
+      
+      <guid>https://feggah.com/posts/what-are-dora-metrics/</guid>
+      <description>This post has my opinionated ideas about this topic. We don&amp;rsquo;t need to agree, but it&amp;rsquo;s important to use it as a starting point to discuss.
+ DORA provides a clear approach to understanding the effectiveness of a software delivery process. One of the keys of DORA is that it doesn&amp;rsquo;t attempt to measure productivity, instead, they are focused on measuring velocity and stability.
+There are four key metrics divided into two groups that are used to measure the performance of teams.</description>
+    </item>
+    
     <item>
       <title>About me</title>
       <link>https://feggah.com/about/</link>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Gabriel Ferreira">
+    <meta name="description" content="Byte or Rune? This is a common question when working with strings in Go">
+    <meta name="keywords" content="blog,developer,personal,devops">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://feggah.com/img/avatar.jpeg"/>
+
+<meta name="twitter:title" content="Byte or rune: is there any difference?"/>
+<meta name="twitter:description" content="Byte or Rune? This is a common question when working with strings in Go"/>
+
+    <meta property="og:title" content="Byte or rune: is there any difference?" />
+<meta property="og:description" content="Byte or Rune? This is a common question when working with strings in Go" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://feggah.com/posts/byte-or-rune/" /><meta property="og:image" content="https://feggah.com/img/avatar.jpeg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-05T20:54:16-03:00" />
+<meta property="article:modified_time" content="2023-06-05T20:54:16-03:00" />
+
+
+
+    <title>
+  Byte or rune: is there any difference? · Feggah
+</title>
+
+    
+      <link rel="canonical" href="https://feggah.com/posts/byte-or-rune/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.92.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-35LWRSBSH4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <a class="navigation-title" href="/">
+      Feggah
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://feggah.com/posts/byte-or-rune/">
+              Byte or rune: is there any difference?
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2023-06-05T20:54:16-03:00'>
+                June 5, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/go/">Go</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>When you are creating algorithms to deal with <code>strings</code> in Go, especially when using <code>for loops</code>, it&rsquo;s common to use either a regular <code>for loop</code> (using each item of the slice as a <code>byte</code>) or a <code>for range loop</code> (using each item as a <code>rune</code>). When choosing which one to use, you could have asked youself &ldquo;Is there any difference?&rdquo;. That&rsquo;s what we are going to talk about in this post.</p>
+<blockquote>
+<p>Before going into the difference between <code>rune</code> and <code>byte</code>, it is important to note that a <code>string</code> in Go is, in effect, a read-only slice of bytes.</p>
+</blockquote>
+<p>When trying to decide which one to use, you could write both of them to see what is the difference. See the example below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span> main() {
+    <span style="font-weight:bold">const</span> str = <span style="font-style:italic">&#34;abc&#34;</span>
+    <span style="font-weight:bold">for</span> key, char := <span style="font-weight:bold">range</span> str {
+        fmt.Printf(<span style="font-style:italic">&#34;%#v of type %T with index %#v\n&#34;</span>, char, char, key)
+        fmt.Printf(<span style="font-style:italic">&#34;%#v of type %T with index %#v\n&#34;</span>, str[key], str[key], key)
+    }
+
+    fmt.Println(<span style="font-style:italic">&#34;===&#34;</span>)
+
+    <span style="font-weight:bold">for</span> i := 0; i &lt; len(str); i++ {
+        fmt.Printf(<span style="font-style:italic">&#34;%#v of type %T with index %#v\n&#34;</span>, str[i], str[i], i)
+    }
+}
+</code></pre></div><blockquote>
+<p><a href="https://go.dev/play/p/ty_BLhQjTle">Playground</a> to run the above code.</p>
+</blockquote>
+<p>The output of the code above is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">97 of type int32 with index 0
+0x61 of type uint8 with index 0
+98 of type int32 with index 1
+0x62 of type uint8 with index 1
+99 of type int32 with index 2
+0x63 of type uint8 with index 2
+===
+0x61 of type uint8 with index 0
+0x62 of type uint8 with index 1
+0x63 of type uint8 with index 2
+</code></pre></div><p>By analysing each type, when you index a string (<code>str[key]</code>) the value is going to be a <code>byte</code> (which is the same as <code>uint8</code>). If you use a <code>for range loop</code>, the <code>char</code> is going to be a <code>rune</code> (which is the same as <code>int32</code>).</p>
+<p>Then you check if there are any differences between these types when converting back to a string.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span> main() {
+    <span style="font-weight:bold">var</span> charTest <span style="">rune</span> = 97
+	<span style="font-weight:bold">var</span> byteTest <span style="">byte</span> = 0x61
+
+	fmt.Println(string(charTest), string(byteTest)) <span style="font-style:italic">// output: a a
+</span><span style="font-style:italic"></span>}
+</code></pre></div><blockquote>
+<p><a href="https://go.dev/play/p/8bv33pGwezo">Playground</a> to run the above code.</p>
+</blockquote>
+<p>Well, so you could conclude that <code>byte</code> and <code>rune</code> are the same thing and can be used interchangeably, right?</p>
+<p>Actually, <strong>no</strong>.</p>
+<p>The key difference between these types is often misunderstood because a lot of programmers learned, wrongly, that <em>a character</em> is stored in <em>one byte</em>.</p>
+<h1 id="some-historical-context">
+  Some historical context
+  <a class="heading-link" href="#some-historical-context">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>In the &ldquo;old-days&rdquo;, the only characters used were english letters. Each of them has a code called ASCII, which represent every character with a number between 32 and 127 &ndash; and, conveniently, this could be stored in one byte.</p>
+<img src="/static/ascii.webp" style="display:block;float:none;margin-left:auto;margin-right:auto;width:60%">
+<p>As time passed, a lot of nations wanted to have their characters in computers as well, but it was impossible to store all possible latin, chinese, arabic, russian and other characters in a single byte. We would have thousands of characters, which cannot be stored in 8 bits.</p>
+<p>To solve this problem, Unicode was invented.</p>
+<p>Simplifying things a lot, Unicode had the objective to create a single <em>character set</em> that includes every possible character, symbols, etc. This means that a character cannot be <strong>always</strong> represented as a single byte. Some of them can be represented as one, two, up to six bytes.</p>
+<p>In Unicode, one character maps to a <em>code point</em>, which is just an abstract concept. In practice, any letter/symbol/characters maps to a unique <em>code point</em>. You can think of it as the &ldquo;UnicodeID&rdquo; of a character.</p>
+<h1 id="code-points-and-rune">
+  Code points and rune
+  <a class="heading-link" href="#code-points-and-rune">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>Up until now, you know that a <code>string</code> is a slice of bytes and each character (<em>code point</em>) in a string can be represented as 1 to 6 bytes.</p>
+<p>Go introduced a short therm for the Code Point concept: <code>rune</code>. This means that a rune is exactly the same as a Code Point. The only addition is that Go defines the word <code>rune</code> as an alias for the type <code>int32</code>, so that programs can be clear when an integer value represents a code point.</p>
+<p>Going back to the question &ldquo;Are <code>byte</code> and <code>rune</code> the same thing and can be used interchangeably?&quot;: the reason why we can&rsquo;t treat <code>byte</code> the same as <code>rune</code> is because a <code>rune</code> can be represented as multiple bytes.</p>
+<p>It is easier to understand the difference if we use a character that is stored in more than 1 byte. Check the example below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="font-weight:bold">func</span> main() {
+    str := <span style="font-style:italic">&#34;日本語&#34;</span>
+	<span style="font-weight:bold">for</span> key, char := <span style="font-weight:bold">range</span> str {
+		fmt.Printf(<span style="font-style:italic">&#34;Character: %v. Type: %T. Value: %v. Index: %#v\n&#34;</span>, string(char), char, char, key)
+	}
+
+	fmt.Println(<span style="font-style:italic">&#34;===&#34;</span>)
+
+	<span style="font-weight:bold">for</span> key := 0; key &lt; len(str); key++ {
+		fmt.Printf(<span style="font-style:italic">&#34;Character: %v. Type: %T. Value: %v. Index: %#v\n&#34;</span>, string(str[key]), str[key], str[key], key)
+	}
+}
+</code></pre></div><blockquote>
+<p><a href="https://go.dev/play/p/a1ctIaSs8n-">Playground</a> to run the above code.</p>
+</blockquote>
+<p>The output of the code above is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">Character: 日. Type: int32. Value: 26085. Index: 0
+Character: 本. Type: int32. Value: 26412. Index: 3
+Character: 語. Type: int32. Value: 35486. Index: 6
+===
+Character: æ. Type: uint8. Value: 230. Index: 0
+Character: . Type: uint8. Value: 151. Index: 1
+Character: ¥. Type: uint8. Value: 165. Index: 2
+Character: æ. Type: uint8. Value: 230. Index: 3
+Character: . Type: uint8. Value: 156. Index: 4
+Character: ¬. Type: uint8. Value: 172. Index: 5
+Character: è. Type: uint8. Value: 232. Index: 6
+Character: ª. Type: uint8. Value: 170. Index: 7
+Character: %
+</code></pre></div><h1 id="small-challenge-">
+  Small challenge 😊
+  <a class="heading-link" href="#small-challenge-">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>There is a LeetCode problem called <a href="https://leetcode.com/problems/valid-anagram/">Valid Anagram</a>. Below you can check a possible solution for this problem:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="font-weight:bold">func</span> isAnagram(s <span style="">string</span>, t <span style="">string</span>) <span style="">bool</span> {
+	<span style="font-weight:bold">if</span> len(s) != len(t) {
+		<span style="font-weight:bold">return</span> <span style="font-weight:bold">false</span>
+	}
+
+	sOccurrencies := make(<span style="font-weight:bold">map</span>[<span style="">byte</span>]<span style="">int</span>, len(s))
+	tOccurrencies := make(<span style="font-weight:bold">map</span>[<span style="">byte</span>]<span style="">int</span>, len(t))
+	<span style="font-weight:bold">for</span> k := <span style="font-weight:bold">range</span> s {
+		sOccurrencies[s[k]] += 1
+		tOccurrencies[t[k]] += 1
+	}
+
+	<span style="font-weight:bold">for</span> k := <span style="font-weight:bold">range</span> sOccurrencies {
+		<span style="font-weight:bold">if</span> sOccurrencies[k] != tOccurrencies[k] {
+			<span style="font-weight:bold">return</span> <span style="font-weight:bold">false</span>
+		}
+	}
+
+	<span style="font-weight:bold">return</span> <span style="font-weight:bold">true</span>
+}
+</code></pre></div><blockquote>
+<p><a href="https://go.dev/play/p/c2h_N8N8DP1">Playground</a> to run the above code.</p>
+</blockquote>
+<p>This code works fine for single-byte characters. How could you adapt the solution to work for any Unicode character? Use the following <code>main</code> function to test it out:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="font-weight:bold">func</span> main() {
+	fmt.Println(isAnagram(<span style="font-style:italic">&#34;anagram&#34;</span>, <span style="font-style:italic">&#34;nagaram&#34;</span>)) <span style="font-style:italic">// Works fine
+</span><span style="font-style:italic"></span>    fmt.Println(isAnagram(<span style="font-style:italic">&#34;こんにちは&#34;</span>, <span style="font-style:italic">&#34;こんばんは&#34;</span>)) <span style="font-style:italic">// Wrong
+</span><span style="font-style:italic"></span>	fmt.Println(isAnagram(<span style="font-style:italic">&#34;ち&#34;</span>, <span style="font-style:italic">&#34;ん&#34;</span>)) <span style="font-style:italic">// Wrong
+</span><span style="font-style:italic"></span>}
+</code></pre></div><h1 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>Using a <code>rune</code> when <em>for ranging looping</em> makes your code compliant to any Unicode character, but if you treat characters as a single byte, your program could not behave as expected when dealing with characters stored in more than 1 byte.</p>
+<p>If you want to deep dive more into this topic, I would recommend starting with the following reads:</p>
+<ol>
+<li><a href="https://go.dev/blog/strings">Strings, bytes, runes and characters in Go</a>.</li>
+<li><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a>.</li>
+</ol>
+<p>If you have any questions, suggestions or want to discuss the topic even further, <a href="https://twitter.com/feggah_">reach me out on Twitter</a>!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Gabriel Ferreira 
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Platform Engineering on Feggah</title>
+    <link>https://feggah.com/tags/platform-engineering/</link>
+    <description>Recent content in Platform Engineering on Feggah</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 09 Jun 2023 09:55:24 -0300</lastBuildDate><atom:link href="https://feggah.com/tags/platform-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PlatformCon 2023 notes</title>
+      <link>https://feggah.com/posts/platformcon-2023-notes/</link>
+      <pubDate>Fri, 09 Jun 2023 09:55:24 -0300</pubDate>
+      
+      <guid>https://feggah.com/posts/platformcon-2023-notes/</guid>
+      <description>Table of Contents     Introduction Build abstractions, not illusions 🌟 How to measure ROI and make your platform effect visible  Roadmap to ROIs  Proxy metrics Visibility     Build golden paths for day 50, not for day 1! 🌟 Backstage does not an internal platform make! The power of collaboration: Why platform engineers should engage in open source contributions Authorization at scale in platform environments Drift detection in multi-region AWS deployments for enterprises using DriftCTL Shorten the feedback loop: How to optimize developer experience and system design Why is it so hard to create a great Platform-as-a-Product?</description>
+    </item>
+    
+  </channel>
+</rss>

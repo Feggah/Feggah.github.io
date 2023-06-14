@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Gabriel Ferreira">
+    <meta name="description" content="PlatformCon 2023 had a lot of talks and insights. In this blog post I&#39;m going to share my notes about some of them.">
+    <meta name="keywords" content="blog,developer,personal,devops">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://feggah.com/img/avatar.jpeg"/>
+
+<meta name="twitter:title" content="PlatformCon 2023 notes"/>
+<meta name="twitter:description" content="PlatformCon 2023 had a lot of talks and insights. In this blog post I&#39;m going to share my notes about some of them."/>
+
+    <meta property="og:title" content="PlatformCon 2023 notes" />
+<meta property="og:description" content="PlatformCon 2023 had a lot of talks and insights. In this blog post I&#39;m going to share my notes about some of them." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://feggah.com/posts/platformcon-2023-notes/" /><meta property="og:image" content="https://feggah.com/img/avatar.jpeg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-09T09:55:24-03:00" />
+<meta property="article:modified_time" content="2023-06-09T09:55:24-03:00" />
+
+
+
+    <title>
+  PlatformCon 2023 notes · Feggah
+</title>
+
+    
+      <link rel="canonical" href="https://feggah.com/posts/platformcon-2023-notes/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.92.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-35LWRSBSH4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <a class="navigation-title" href="/">
+      Feggah
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://feggah.com/posts/platformcon-2023-notes/">
+              PlatformCon 2023 notes
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2023-06-09T09:55:24-03:00'>
+                June 9, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              19-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/platform-engineering/">Platform Engineering</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="table-of-contents">
+  Table of Contents
+  <a class="heading-link" href="#table-of-contents">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#build-abstractions-not-illusions">Build abstractions, not illusions</a></li>
+<li><a href="#-how-to-measure-roi-and-make-your-platform-effect-visible">🌟 How to measure ROI and make your platform effect visible</a>
+<ul>
+<li><a href="#roadmap-to-rois">Roadmap to ROIs</a>
+<ul>
+<li><a href="#proxy-metrics">Proxy metrics</a></li>
+<li><a href="#visibility">Visibility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#build-golden-paths-for-day-50-not-for-day-1">Build golden paths for day 50, not for day 1!</a></li>
+<li><a href="#-backstage-does-not-an-internal-platform-make">🌟 Backstage does not an internal platform make!</a></li>
+<li><a href="#the-power-of-collaboration-why-platform-engineers-should-engage-in-open-source-contributions">The power of collaboration: Why platform engineers should engage in open source contributions</a></li>
+<li><a href="#authorization-at-scale-in-platform-environments">Authorization at scale in platform environments</a></li>
+<li><a href="#drift-detection-in-multi-region-aws-deployments-for-enterprises-using-driftctl">Drift detection in multi-region AWS deployments for enterprises using DriftCTL</a></li>
+<li><a href="#shorten-the-feedback-loop-how-to-optimize-developer-experience-and-system-design">Shorten the feedback loop: How to optimize developer experience and system design</a></li>
+<li><a href="#why-is-it-so-hard-to-create-a-great-platform-as-a-product">Why is it so hard to create a great Platform-as-a-Product?</a></li>
+<li><a href="#high-performing-engineering-teams-and-the-holy-grail">High-performing engineering teams and the Holy Grail</a></li>
+<li><a href="#-how-to-implement-a-developer-platform-in-an-organization-with-hundreds-of-existing-services">🌟 How to implement a developer platform in an organization with hundreds of existing services</a></li>
+<li><a href="#how-to-avoid-burning-your-startup-money-on-cloud-costs">How to avoid burning your startup money on cloud costs!</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<h1 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p><a href="https://platformcon.com/talks">PlatformCon 2023</a> happened between 8-9 June, there were more than 150 talks about Platform Engineering divided into the topics: Culture, tech, impact, stories or blueprints. I decided to share my notes about some talks that I watched and I would recommend you to watch the full talk if you get interested in the talk subject.</p>
+<p>The post will be divided into sections and each one is referring to one talk. I prefixed the most insightful talks (for me) with a &ldquo;🌟&rdquo;, check them out!</p>
+<h1 id="build-abstractions-not-illusions">
+  Build abstractions, not illusions
+  <a class="heading-link" href="#build-abstractions-not-illusions">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/vUE_1gkhmSU">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>When building platforms, one of our core objectives is reducing cognitive load. This can be achieved by building abstractions, which enables the user to focus on details of greater importance.</p>
+<p>Often times, it is common to see ilussion being created instead of abstractions. What is the difference?</p>
+<ul>
+<li>Abstraction is removing or generalizing details to focus attention on details of greater importance.</li>
+<li>Illusion is removing or generalizing important details, which cause the user to be misled.</li>
+</ul>
+<p>One of the main challenges when building platforms is hiding complexity without hiding important details.</p>
+<p>Key take-aways:</p>
+<ul>
+<li>Platforms reduce cognitive load by exposing useful abstractions.</li>
+<li>Good abstractions form a cohesive language and useful mental model.</li>
+<li>Omitting relevant details is tempting but ends up with dangerous illusions.</li>
+</ul>
+<h1 id="-how-to-measure-roi-and-make-your-platform-effect-visible">
+  🌟 How to measure ROI and make your platform effect visible
+  <a class="heading-link" href="#-how-to-measure-roi-and-make-your-platform-effect-visible">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/bF5kOVClK5Q">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>The best way to measure ROI is starting off with metrics. But <strong>what and how to measure?</strong></p>
+<p>The answer is simple: start with well-known frameworks. Something that &ldquo;management can Google&rdquo; and have proven impact with successful stories of another companies. For example: DORA, SPACE and Flow Framework. Using this well-known frameworks is an easier way to start instead of trying to create a new one, because management can understand how the existent framework works and what value does it brings.</p>
+<h2 id="roadmap-to-rois">
+  Roadmap to ROIs
+  <a class="heading-link" href="#roadmap-to-rois">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h2>
+<h3 id="proxy-metrics">
+  Proxy metrics
+  <a class="heading-link" href="#proxy-metrics">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>The key is to start with a couple of metrics and improve overtime. You shouldn&rsquo;t start &ldquo;boiling the whole ocean&rdquo;.</p>
+<p>There are some metrics that can be used as &ldquo;Proxy metrics&rdquo;, and can communicate well with management/executives in the company. Below are some examples of &ldquo;proxy metrics&rdquo;:</p>
+<ul>
+<li>Measuring Lead Time, you can use it as a proxy to Time to Market &ndash; if you reduce your Lead Time in 20%, it means that your Time To Market is reduced well.</li>
+<li>Measuring Wait Time to Review, you can use it as a proxy to Productivity &ndash; if you reduce your Review Time, it means that developers can deploy more frequently, feeling more productive.</li>
+</ul>
+<blockquote>
+<p>Note that this is an example of &ldquo;how to start&rdquo; with the bare minumum and communicate with management. You should continuously improve these metrics, it isn&rsquo;t an &ldquo;one-off&rdquo; effort.</p>
+</blockquote>
+<img src="/static/proxy-metrics.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:70%">
+<p>It is important to keep measuring these metrics and compare it with the past. Ideally, you could extract valuable information about improvement by analysing how these metrics were in the past and how it improved overtime. Along with that, correlating this improvement with business outcomes.</p>
+<h3 id="visibility">
+  Visibility
+  <a class="heading-link" href="#visibility">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<p>A key delivery is visibility. You should make effect by creating visibility of these metrics. Also, automating as much as you can to extract these metrics, you can turn this visibility &ldquo;live&rdquo;, updating day after day and reducing effort/toil to calculate them.</p>
+<p>With this visibility in place, you could report it to right level adapting your communication based on the listener. If you are talking to your VP of engineering, he probably will care about more &ldquo;low-level&rdquo; metrics such as Review Time. But maybe the CEO is more interested in &ldquo;high-level&rdquo; ones, such as Time to Market and how to improve it.</p>
+<hr>
+<p>With the business impact that the platform has, metrics and visibility in place to measure its ROI, we will build trust in this &ldquo;platform transformation journey&rdquo;. This trust will come back to the platform with more investment and improvements.</p>
+<h1 id="build-golden-paths-for-day-50-not-for-day-1">
+  Build golden paths for day 50, not for day 1!
+  <a class="heading-link" href="#build-golden-paths-for-day-50-not-for-day-1">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/RD5krNEGspg">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>Most golden paths are focused on day 1. They focus only on the creation of the workload, but the problem is that this new workload will last for years.</p>
+<p>So, it is important to create golden paths not only for day 1, but also for day 50, 100, 1000, etc. To make it possible, for every release of the workload, we should dynamically generate all necessary infrastructure and application configurations.</p>
+<p>We need to treat every day like it&rsquo;s the first day. We need to treat every deployment as if we were deploying the first time. By doing this, we can continuously standardize golden paths and reduce cognitive load.</p>
+<p>Dynamically create configurations is possible when you have an abstraction description of your component, what resources it needs and what applications it depends on. One developer could describe, in an environment-agnostic way, how one workload depends on another workloads and resources.</p>
+<p>Having this &ldquo;Workload Specification&rdquo; improves developer experience, because the configuration can be created dynamically depending on what he wants. For example, to deploy this specification to staging or a ephemeral environment, the change between these environments is as simple as a &ldquo;git push&rdquo;. Then the &ldquo;platform orchestrator&rdquo; will create, based on the context given by the developer, dynamically configurations.</p>
+<p>This continuous and dynamic configuration is the opportunity to standardize any part of the Software Development Lifecycle. Could be creating a new workload or upgrading a database version, having a declarative specification of what the developer wants, the orchestrator will standardize how this operation is done.</p>
+<p>The power of dynamic configuration management and designing golden paths in a decentralized way, along with the entire SDLC. Below is an image as example of benefits when there are standards for the entide SDLC:</p>
+<img src="/static/golden-paths.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:100%">
+<h1 id="-backstage-does-not-an-internal-platform-make">
+  🌟 Backstage does not an internal platform make!
+  <a class="heading-link" href="#-backstage-does-not-an-internal-platform-make">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/JTBwIQpLwT0">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>Most platforms have the same dream:</p>
+<ul>
+<li>Reduce costs</li>
+<li>Increase speed</li>
+<li>Reduce risk</li>
+</ul>
+<p>But, there are some enemies of the platform progress. One of the most significant ones is the learning curves and high cognitive load. Learning curves is huge in the platform engineering space &ndash; Kubernetes, CI/CD tools, Helm, Golang and the list goes; All enemies and the inherit of the abstractions built, makes the platform team deal with a lot of cognitive load.</p>
+<p>In the last years, Backstage is increasing its popularity and a lot of platform teams are using is as a UI interface to the platforms. Backstage offers a powerful framework and a positive UX for internal customers. But in reality, Backstage brings a lot of problems to the platform team:</p>
+<ul>
+<li>How to deploy it</li>
+<li>How to secure it</li>
+<li>How to keep it updated with open source</li>
+<li>How to customise it (React, HTML, CSS)</li>
+</ul>
+<p>Although Backstage is a powerful and awesome tool to drive UX, it doesn&rsquo;t come for free. All of the topics above increase even more the cognitive load of platform teams, that was already high.</p>
+<p>A common Backstage architecture can be seem below:</p>
+<img src="/static/common-backstage-architecture.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:70%">
+<p>Backstage has a ton of plugins that can be plugged. But you need to be careful to not &ldquo;Leaky the abstractions&rdquo; by making your Backstage have too much knowledge about how your platform works, and this will give a poor abstration experience to your customers.</p>
+<p>You need to consider your abstractions carefully. Backstage should be responsible for the &ldquo;View&rdquo; aspect of the system, but controlling the backend system and orchestrating it, probably there is a better technology out there. Be very careful about putting too much platform responsibility into Backstage.</p>
+<p>A better architecture to use with Backstage would separate, clearly, the &ldquo;View&rdquo; of your platform from your backend system. A better Backstage architecture can be seem below:</p>
+<img src="/static/good-backstage-architecture.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:70%">
+<p>This way, Backstage can serve as declarative framework and a View to your platform abstractions. Backstage will not be responsible to have all platform knowledge, because the Platform layer will have it and expose abstractions that can be consumed by Backstage.</p>
+<p>To wrap things up, it is important to selected the high tools, abstractions and consider your investments in the platform team. Your platform team should always decide and invest in:</p>
+<ul>
+<li>Serve your users</li>
+<li>Increase your organisational speed</li>
+<li>Keep your teams cognitive load low</li>
+</ul>
+<h1 id="the-power-of-collaboration-why-platform-engineers-should-engage-in-open-source-contributions">
+  The power of collaboration: Why platform engineers should engage in open source contributions
+  <a class="heading-link" href="#the-power-of-collaboration-why-platform-engineers-should-engage-in-open-source-contributions">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/BVZaYUuY1K4">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>Contributing to Open Source makes you a better engineer. That&rsquo;s because you need to create generic solutions (not vendor-specific), it will force you to read the existing code before writing, and the impact is huge &ndash; because a lot of different companies will use your contributions.</p>
+<p>Besides that, it will push you to practice public speaking, helps your career and personal brand grow, improves communication and confidence, and you will meet a lot of great people.</p>
+<p>You can prioritise feature that are important for your use cases, less in-house tailoring (as you will fix things in the project itself).</p>
+<p>The company that gives time for the employees to contribute to Open Source also get benefits: the employees will bring back knowledge about the project, easier to attract talents to the team and can impact the project roadmap (which will bring more value to the business).</p>
+<h1 id="authorization-at-scale-in-platform-environments">
+  Authorization at scale in platform environments
+  <a class="heading-link" href="#authorization-at-scale-in-platform-environments">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/K1TA7lxNTjQ">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>In the platform engineering space, there are multiple iniciatives that could be explored to help your internal customers. One of them is centralizing/standardizing the Authorization.</p>
+<p>It is common to see every application implementing its own authorization logic, but this can be a problem at scale (hundreds of applications):</p>
+<ul>
+<li>Implementation errors (or lack of implementation)</li>
+<li>Not knowing which app validates AuthZ and which doesn&rsquo;t</li>
+<li>With multiple types of authentication (cookie, access token, etc), each application will have to implement it separately</li>
+<li>Risk of session leak</li>
+<li>Implementation cost</li>
+<li>No enforcement point for security</li>
+</ul>
+<p>To solve this problem, the internal platform could offer AuthZ as a Service.</p>
+<img src="/static/authz-as-a-service.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:100%">
+<p>The image above is a simplified sample design of an AuthZ as a Service. Each application doesn&rsquo;t have to implement AuthZ, this responsibility is outsourced to the internal platform. The pros of this approach are:</p>
+<ul>
+<li>Enforcement point for security</li>
+<li>Less responsibility for applications</li>
+<li>Increase velocity and impact of developers, as they can focus even more on feature that brings value to their Business Unit</li>
+<li>Standardization of AuthZ</li>
+<li>Hot deploy (it is possible to change AuthZ without redeploying the application)</li>
+<li>Traceability (how many requests (%) were denied and why)</li>
+</ul>
+<p>Besides its benefits, it also has some cons:</p>
+<ul>
+<li>Cost of migrating to the new AuthZ method</li>
+<li>Major paradigm shift</li>
+<li>Complex implementation</li>
+</ul>
+<p>Also, there are some learnings and concerns that should be highlighted:</p>
+<ul>
+<li>RBAC is not enough in many cases</li>
+<li>Paradigm transition can be a challenge</li>
+<li>The AuthZ service needs to be highly performant</li>
+<li>Critical component in the infrastructure, needs to have high resilience to not become a single point of failure</li>
+</ul>
+<p>It&rsquo;s important to reinforce that Authorization must be a high security concern to the company. The OWASP Top Ten Application Security Risks states that Broken Access Control is the number one security risk.</p>
+<img src="/static/owasp.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:100%">
+<p>Having Authorization as a Service in the internal platform brings long-term gains in security, scalability and standardization to the company. Also, don&rsquo;t limit your AuthZ as a Service solution to RBAC, it is important to support other types of AuthZ.</p>
+<h1 id="drift-detection-in-multi-region-aws-deployments-for-enterprises-using-driftctl">
+  Drift detection in multi-region AWS deployments for enterprises using DriftCTL
+  <a class="heading-link" href="#drift-detection-in-multi-region-aws-deployments-for-enterprises-using-driftctl">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/nVa92h0iuPc">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>In larger enterprises, it is common to have multi-region and multi-accounts in AWS. The infrastructure is created using IaC, but it is common to see IaC drift when incidents occur. When the cloud provider has drift, this can generate security risks, as the cloud state is not the same as the IaC in the repositories.</p>
+<p>The tool DriftCTL will compare the Terraform state and the resources in AWS. When you run a <code>driftctl scan</code>, it will output how many resources are managed by Terraform, how many aren&rsquo;t, how many is declared in Terraform state but missing on the cloud provider and the &ldquo;coverage&rdquo; of IaC in the account.</p>
+<p>It is possible to define the output of the <code>driftctl</code> command as HTLM or JSON. Below is an example of the HTML generated:</p>
+<img src="/static/driftctl-html-output.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:100%">
+<p>Each DriftCTL scan refers to one TFSTATE. Probably there are multiple TFSTATES that composes the whole cloud provider configuration. Because of that, there is a Python script that collapses all outputs in one. Below is the example of this Python output from multiple accounts and regions (multiple TFSTATES).</p>
+<img src="/static/driftctl-python-output.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:70%">
+<p>As you can see in the image above, there is no drift in the cloud provider. So we will introduce a drift, run driftctl and the python script again, the only difference is that we will use the python script with the <code>--detailed</code> flag. The new output would be:</p>
+<img src="/static/driftctl-detailed-python-output.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:100%">
+<p>This tool can be used in combination with a CronJob or the CI pipeline to generated reports frequently. Then, this reports could be analysed on the desired frequency (daily, weekly, etc) to take actions.</p>
+<p>There is a blog post from AWS with a Hands-On to test DriftCTL: <a href="https://aws.amazon.com/pt/blogs/infrastructure-and-automation/reduce-security-risks-from-iac-drift-in-multi-region-aws-deployments-with-terraform/">Reduce security risks from IaC drift in multi-Region AWS deployments with Terraform</a>.</p>
+<h1 id="shorten-the-feedback-loop-how-to-optimize-developer-experience-and-system-design">
+  Shorten the feedback loop: How to optimize developer experience and system design
+  <a class="heading-link" href="#shorten-the-feedback-loop-how-to-optimize-developer-experience-and-system-design">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/ubgnSdOczXY">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>System Design and Developer Experience: often seem as two completely different things, but actually they have a lot in common. Both of them are designed to optimize your systems for change. Software Architecture is focused on optimizing your systems for change and DevEx is focused on optimizing your developer tooling, but both of them are focused around the ability to shorten the feedback cycle around either product or system changes.</p>
+<p>We have the traditional SDLC, represented in the image below:</p>
+<img src="/static/sdlc.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:50%">
+<p>In DevEX, instead of designing your systems to adapt to change, you are developing platforms, automations and tooling for your developers to use to interact with the SDLC, making each part of the cycle easier.</p>
+<p>Key-takeaways:</p>
+<ul>
+<li>Tech leads should consider DevEx in System Design.</li>
+</ul>
+<p>For example, if a new event-driven stack in a new cloud provider is used, we should consider how to debug, test and optimize it (DevEx). Those are things inherited by the System Design and should be considered, because requirements will change and you want to be able to respond to them quickly (debugging, testing and optimizing).</p>
+<ul>
+<li>System Design should be optimized for continual change.</li>
+</ul>
+<p>The system will never stop changing, so you need to respond to that as they come up.</p>
+<ul>
+<li>Add scalability and performance to your DevEX tools.</li>
+</ul>
+<p>Scalability and performance debugging should be core to the work of creating internal DevEx tools. It will enable service teams to measure performance, capacity analysis and cost on the code that are being developed. It will help service teams to answer important questions of the system design.</p>
+<h1 id="why-is-it-so-hard-to-create-a-great-platform-as-a-product">
+  Why is it so hard to create a great Platform-as-a-Product?
+  <a class="heading-link" href="#why-is-it-so-hard-to-create-a-great-platform-as-a-product">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/8VPCaP-TxLs">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>Platform as a Product or Product thinking is something almost every person in the platform engineering space have heard. However, it seems much harder to do in practice than in theory. Here are some stumbling blocks when trying to do this product thinking:</p>
+<ol>
+<li>Not affording the platform the same considerations as an external product.</li>
+</ol>
+<p>Because the customers of this platform are internal users, often times assumptions are made about them, such as: what is best for them, their abilities and willingness to accept what&rsquo;s provided.</p>
+<p>Another problem is treating the platform as a cost center. This can bring the risk of a cost cutting war and depriorisation, as it isn&rsquo;t seem as a proper product.</p>
+<p>To solve this, it is important to try to market the value of the platform. This can be done using metrics, for example, how long it takes to a new team onboard a new product and get it to market without the platform and with the platform. This can bring evidence that the platform really provide value.</p>
+<ol start="2">
+<li>Making the platform mandatory</li>
+</ol>
+<p>If you check other products, no one forces you to use them. We are not forced to choose a specific cloud provider, a brand of shoes or a phone, we choose one because we decided that it is worth it.</p>
+<p>With an optional approach, users will give feedbacks, discussions and this will improve innovation and the user experience. By making the platform mandatory, you will cut this valuable feedback loops.</p>
+<ol start="3">
+<li>Optimising for a &ldquo;MonoPlatform&rdquo;</li>
+</ol>
+<p>Platforms are often designed to &ldquo;rule them all&rdquo; and offer one way of doing things. This can be problematic, as each team and application has a different contexts, use cases and needs.</p>
+<ol start="4">
+<li>Working within less than ideal team shapes &amp; markeups</li>
+</ol>
+<p>Because platforms are often created by infra-biased teams, the solutions built are more &ldquo;opsy&rdquo;. Teams that build the platform should be &ldquo;bilingual&rdquo;, speaking both app &amp; infra, a mix of engineers that understands about architecture and application requirements as well as infrastructure skills.</p>
+<p>Another thing, that is not essential but massively helps, is having a technical product owner. When this PO has the technical knowledge, it can really help to build more natural empathy and understanding with the various different users of the platform in different situations.</p>
+<ol start="5">
+<li>Having an unhealthy focus on the tech</li>
+</ol>
+<p>As engineers, we tend to have an unhealthy focus on technology. Engineers always want to start by building something concrete instead of resisting the urge and focusing on the users needs first.</p>
+<h1 id="high-performing-engineering-teams-and-the-holy-grail">
+  High-performing engineering teams and the Holy Grail
+  <a class="heading-link" href="#high-performing-engineering-teams-and-the-holy-grail">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/o1UBK7_W3k0">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>Analysing anonymous data from Puppet State of DevOps Report since 2019, a set of recommended baseline engineering metrics that relate to CI/CD were identified. It is important to note that metrics aren&rsquo;t &ldquo;One size fits all&rdquo;, each application or team has different contexts and use cases. But, key similarities suggesting valuable benchmarks for teams to use as gols were identified:</p>
+<ol>
+<li>Duration: average time in minutes to move a unit of work through your pipeline. The benchmarks recommend to be less or equal to 10 minutes, in average.</li>
+<li>Mean time to recovery: average time to go from a failed build signal to a successful pipeline run. The benchmarks recommend to be less or equal 60 minutes on default branches.</li>
+<li>Success rate: number of passing runs divided by the total number of runs over a period of time. The benchmarks recommend to be more than 90% success rate in default branches.</li>
+<li>Throughput: average number of workflow runs that an organization completes on a given project per day. An ideal throughput is subjective to your organization goals.</li>
+</ol>
+<p>Improving test coverage is a practice that we noticed that improved all metrics, for example:</p>
+<ul>
+<li>Add unit, integration, UI and end-to-end testing across all app layers.</li>
+<li>Incorporate code coverage tools into pipelines to identify inadequate testing.</li>
+<li>Include static and dynamic security scans to catch vulnerabilities.</li>
+<li>Incorporate TDD practices by writing tests during design phase.</li>
+</ul>
+<p>To get a faster MTTR:</p>
+<ul>
+<li>Treat your default branch as the lifeblood of your project (and the company).</li>
+<li>Set up instant alerts for failed builds using services like Slack, Twilio, PagerDuty, etc.</li>
+<li>Write clear, informative error messages for your tests, allowing quick diagnosis.</li>
+</ul>
+<h1 id="-how-to-implement-a-developer-platform-in-an-organization-with-hundreds-of-existing-services">
+  🌟 How to implement a developer platform in an organization with hundreds of existing services
+  <a class="heading-link" href="#-how-to-implement-a-developer-platform-in-an-organization-with-hundreds-of-existing-services">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/ZGdMlcwje-w">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>One of the challenges faced when building an IDP for a &ldquo;enterprise level&rdquo; company is &ldquo;How to support many different tech stacks?&rdquo;.</p>
+<p>To tackle this problem, SAP created a &ldquo;Fellowship program&rdquo;. This program works like this:</p>
+<ul>
+<li>Engineers are recruited from across the organization and join the Platform Engineering Fellowship for 3-6 months. This engineers has different backgrounds, experiences and domain knowledge.</li>
+<li>They learn about Platform Engineering mission and the current IDP features.</li>
+<li>Help to build out the features under the guidance of engineers that are part of the team. This features are related to solve problems from the area that they worked before.</li>
+<li>Then, they take those features and integrate them back into the services from their area.</li>
+<li>Once they have done that, these engineers &ldquo;demo&rdquo; the work completed to another teams, area and the entire organization; which gives them the exposure and experience.</li>
+</ul>
+<p>The benefits of this approach is:</p>
+<ul>
+<li>Brings together engineers with different skills &amp; domain knowledge</li>
+<li>Opportunity for engineers to work on new technologies</li>
+<li>Helps with buy-in and adoption of Platform features</li>
+<li>Builds Platform Engineering community in the organization</li>
+<li>Ongoing contributions</li>
+</ul>
+<p>Besides the challenge, they also used the following KPIs to measure the success of the platform:</p>
+<ul>
+<li>Adoption Figures: number of teams that have adopted features from the platform</li>
+<li>Dev time on OPS tasks: surveys to get how much time developers are spending on Ops and try to compare this time before &amp; after the platform features</li>
+<li>Production Incidents: number of production incidents, MTTR and compare these numbers before &amp; after the platform features, seeking to reduce the number and duration of incidents.</li>
+</ul>
+<h1 id="how-to-avoid-burning-your-startup-money-on-cloud-costs">
+  How to avoid burning your startup money on cloud costs!
+  <a class="heading-link" href="#how-to-avoid-burning-your-startup-money-on-cloud-costs">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<blockquote>
+<p><a href="https://youtu.be/U2CmVEjXfKY">Watch the full talk on YouTube</a></p>
+</blockquote>
+<p>To start off with FinOps, there are 4 main steps to implement it:</p>
+<ol>
+<li>Tag everything</li>
+</ol>
+<p>Tag every resource by multiple dimensions, automate tagging with Terraform modules and insert validation to ensure that all resources in the cloud are tagged.</p>
+<ol start="2">
+<li>Visibility</li>
+</ol>
+<p>Use any tool to visualize cost. It can be the cloud provider tool itself (for example, AWS cost explorer) or any 3rd party system. It is important to have the desired visibility for you use case, that could be per tenant, service, etc.</p>
+<ol start="3">
+<li>Tracking</li>
+</ol>
+<p>Create reports, slack integration and alerts envolving your cloud costs expenses.</p>
+<ol start="4">
+<li>Insights</li>
+</ol>
+<p>Identify top spend factors, understand true cost and deep dive into services.</p>
+<hr>
+<p>After that, the next things to be done is:</p>
+<ul>
+<li>Define a Goal (Where do we want to get)
+<ul>
+<li>Yearly/monthly bill</li>
+<li>Percentage of savings</li>
+<li>Cost per tenant</li>
+</ul>
+</li>
+<li>Understand Constraints (What can &amp; can&rsquo;t be done?)
+<ul>
+<li>Must keep current SLA</li>
+<li>Application changes</li>
+<li>Developers experience</li>
+</ul>
+</li>
+<li>Understand Business Unit cost (How should I really measure?)
+<ul>
+<li>What happens if the company grows?</li>
+<li>What is the real business unit cost?</li>
+<li>How much does one tenant cost?</li>
+</ul>
+</li>
+</ul>
+<p>After all of that, you should drill down your cloud provider understanding of the cost for each type of resource. Your top spend factors are the major opportunity to shrink costs, and with the cloud provider knowledge, you could change the infrastructure configuration to minimize the bills.</p>
+<p>It is important to analyse each factor individually, what are the use cases for this infrastructure resource in your company and modify the configuration to reduce costs. For example, in S3 you can move infrequently accessed data to lower cost tiers:</p>
+<img src="/static/s3-cost.png" style="display:block;float:none;margin-left:auto;margin-right:auto;width:80%">
+<h1 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>PlatformCon is a great yearly conference in the Platform Engineering space. If you want to get closer to the community, <a href="https://platformengineering.org/slack-rd">join Slack</a> and <a href="https://platformcon.com/register">sign up for PlatformCon 2024</a>!</p>
+<p>If you have any questions, suggestions or want to discuss the topic even further, <a href="https://twitter.com/feggah_">reach me out on Twitter</a>!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Gabriel Ferreira 
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

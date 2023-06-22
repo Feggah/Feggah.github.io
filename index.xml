@@ -6,7 +6,18 @@
     <description>Recent content on Feggah</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Jun 2023 09:55:24 -0300</lastBuildDate><atom:link href="https://feggah.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jun 2023 16:21:10 -0300</lastBuildDate><atom:link href="https://feggah.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quick tips: How to change function return value from deferred call</title>
+      <link>https://feggah.com/posts/how-to-change-function-return-value-from-deferred-call/</link>
+      <pubDate>Thu, 22 Jun 2023 16:21:10 -0300</pubDate>
+      
+      <guid>https://feggah.com/posts/how-to-change-function-return-value-from-deferred-call/</guid>
+      <description>It is common to use defer in Golang and there are some cases where you could want to check if the deferred call returned an error or not. In such a case, how could you check and pass the deferred error to the function caller?
+The example below shows an example of using defer with Close():
+func createFile(name string) error { f, err := os.Create(name) if err != nil { return err } defer f.</description>
+    </item>
+    
     <item>
       <title>PlatformCon 2023 notes</title>
       <link>https://feggah.com/posts/platformcon-2023-notes/</link>

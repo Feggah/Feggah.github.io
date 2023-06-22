@@ -6,22 +6,22 @@
     <description>Recent content in Tags on Feggah</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 09 Jun 2023 09:55:24 -0300</lastBuildDate><atom:link href="https://feggah.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jun 2023 16:21:10 -0300</lastBuildDate><atom:link href="https://feggah.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go</title>
+      <link>https://feggah.com/tags/go/</link>
+      <pubDate>Thu, 22 Jun 2023 16:21:10 -0300</pubDate>
+      
+      <guid>https://feggah.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Platform Engineering</title>
       <link>https://feggah.com/tags/platform-engineering/</link>
       <pubDate>Fri, 09 Jun 2023 09:55:24 -0300</pubDate>
       
       <guid>https://feggah.com/tags/platform-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Go</title>
-      <link>https://feggah.com/tags/go/</link>
-      <pubDate>Mon, 05 Jun 2023 20:54:16 -0300</pubDate>
-      
-      <guid>https://feggah.com/tags/go/</guid>
       <description></description>
     </item>
     

@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://feggah.com/</loc>
-    <lastmod>2023-06-09T09:55:24-03:00</lastmod>
+    <lastmod>2023-06-22T16:21:10-03:00</lastmod>
+  </url><url>
+    <loc>https://feggah.com/tags/go/</loc>
+    <lastmod>2023-06-22T16:21:10-03:00</lastmod>
+  </url><url>
+    <loc>https://feggah.com/posts/</loc>
+    <lastmod>2023-06-22T16:21:10-03:00</lastmod>
+  </url><url>
+    <loc>https://feggah.com/posts/how-to-change-function-return-value-from-deferred-call/</loc>
+    <lastmod>2023-06-22T16:21:10-03:00</lastmod>
+  </url><url>
+    <loc>https://feggah.com/tags/</loc>
+    <lastmod>2023-06-22T16:21:10-03:00</lastmod>
   </url><url>
     <loc>https://feggah.com/tags/platform-engineering/</loc>
     <lastmod>2023-06-09T09:55:24-03:00</lastmod>
@@ -11,16 +23,7 @@
     <loc>https://feggah.com/posts/platformcon-2023-notes/</loc>
     <lastmod>2023-06-09T09:55:24-03:00</lastmod>
   </url><url>
-    <loc>https://feggah.com/posts/</loc>
-    <lastmod>2023-06-09T09:55:24-03:00</lastmod>
-  </url><url>
-    <loc>https://feggah.com/tags/</loc>
-    <lastmod>2023-06-09T09:55:24-03:00</lastmod>
-  </url><url>
     <loc>https://feggah.com/posts/byte-or-rune/</loc>
-    <lastmod>2023-06-05T20:54:16-03:00</lastmod>
-  </url><url>
-    <loc>https://feggah.com/tags/go/</loc>
     <lastmod>2023-06-05T20:54:16-03:00</lastmod>
   </url><url>
     <loc>https://feggah.com/tags/devops/</loc>

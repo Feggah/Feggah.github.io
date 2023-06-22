@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+
+    <meta name="author" content="Gabriel Ferreira">
+    <meta name="description" content="It is common to use defer in Golang and there are some cases where you could want to check if the deferred call returned an error or not. In such a case, how could you check and pass the deferred error to the function caller?
+The example below shows an example of using defer with Close():
+func createFile(name string) error { f, err := os.Create(name) if err != nil { return err } defer f.">
+    <meta name="keywords" content="blog,developer,personal,devops">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://feggah.com/img/avatar.jpeg"/>
+
+<meta name="twitter:title" content="Quick tips: How to change function return value from deferred call"/>
+<meta name="twitter:description" content="It is common to use defer in Golang and there are some cases where you could want to check if the deferred call returned an error or not. In such a case, how could you check and pass the deferred error to the function caller?
+The example below shows an example of using defer with Close():
+func createFile(name string) error { f, err := os.Create(name) if err != nil { return err } defer f."/>
+
+    <meta property="og:title" content="Quick tips: How to change function return value from deferred call" />
+<meta property="og:description" content="It is common to use defer in Golang and there are some cases where you could want to check if the deferred call returned an error or not. In such a case, how could you check and pass the deferred error to the function caller?
+The example below shows an example of using defer with Close():
+func createFile(name string) error { f, err := os.Create(name) if err != nil { return err } defer f." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://feggah.com/posts/how-to-change-function-return-value-from-deferred-call/" /><meta property="og:image" content="https://feggah.com/img/avatar.jpeg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-22T16:21:10-03:00" />
+<meta property="article:modified_time" content="2023-06-22T16:21:10-03:00" />
+
+
+
+    <title>
+  Quick tips: How to change function return value from deferred call · Feggah
+</title>
+
+    
+      <link rel="canonical" href="https://feggah.com/posts/how-to-change-function-return-value-from-deferred-call/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.92.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-dark">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-35LWRSBSH4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <a class="navigation-title" href="/">
+      Feggah
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="https://feggah.com/posts/how-to-change-function-return-value-from-deferred-call/">
+              Quick tips: How to change function return value from deferred call
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2023-06-22T16:21:10-03:00'>
+                June 22, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/go/">Go</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>It is common to use <code>defer</code> in Golang and there are some cases where you could want to check if the <em>deferred call</em> returned an error or not. In such a case, how could you check and pass the <em>deferred error</em> to the function caller?</p>
+<p>The example below shows an example of using <code>defer</code> with <code>Close()</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span> createFile(name <span style="">string</span>) <span style="">error</span> {
+	f, err := os.Create(name)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		<span style="font-weight:bold">return</span> err
+	}
+	<span style="font-weight:bold">defer</span> f.Close()
+
+	<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>
+}
+</code></pre></div><p>If your function cannot use the direct return value from <code>f.Close()</code> (for example, if your function has more logic to be done), just using <code>defer</code> you would ignore the possible error.</p>
+<p>There is a way to handle this case with defer by using <strong>Named Return Values</strong>. Note the the difference in the return of the function below compared to the example given earlier and the <code>defer</code> implementation:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span> createFile(name <span style="">string</span>) (err <span style="">error</span>) {
+	f, err := os.Create(name)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		<span style="font-weight:bold">return</span> err
+	}
+
+	<span style="font-weight:bold">defer</span> <span style="font-weight:bold">func</span>() {
+		cErr := f.Close()
+		<span style="font-weight:bold">if</span> err == <span style="font-weight:bold">nil</span> {
+			err = cErr
+		}
+	}()
+
+	<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>
+}
+</code></pre></div><p>The <code>err</code> variable is declared in the return, so it&rsquo;s a local variable declared in the function signature. You can think of it with the same behavior of the <code>name</code> parameter variable. This feature is the reason that allow us to overwrite the <code>err</code> value inside the <code>defer func()</code> block.</p>
+<p>To make it even clear, lets force an error from the <code>f.Close()</code> call inside the <code>defer func()</code> block &ndash; to do that, we are just inserting one more f.Close() right after the <code>if err</code> check:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span> main() {
+	fmt.Println(createFile(<span style="font-style:italic">&#34;example.txt&#34;</span>)) <span style="font-style:italic">// output: close example.txt: file already closed
+</span><span style="font-style:italic"></span>}
+
+<span style="font-weight:bold">func</span> createFile(name <span style="">string</span>) (err <span style="">error</span>) {
+	f, err := os.Create(name)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		<span style="font-weight:bold">return</span> err
+	}
+	f.Close()
+
+	<span style="font-weight:bold">defer</span> <span style="font-weight:bold">func</span>() {
+		cErr := f.Close()
+		<span style="font-weight:bold">if</span> err == <span style="font-weight:bold">nil</span> {
+			err = cErr
+		}
+	}()
+
+	<span style="font-weight:bold">return</span> <span style="font-weight:bold">nil</span>
+}
+</code></pre></div><p>When you run the above code, the output will be: <code>close example.txt: file already closed</code>. If we rewrite the method to the <em>not checking deferred error</em> mode, we can see that this error is omitted and could cause some hard problems to debug in the application:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span> main() {
+	fmt.Println(createFile(<span style="font-style:italic">&#34;example.txt&#34;</span>)) <span style="font-style:italic">// output: &lt;nil&gt;
+</span><span style="font-style:italic"></span>}
+
+<span style="font-weight:bold">func</span> createFile(name <span style="">string</span>) <span style="">error</span> {
+	f, err := os.Create(name)
+	<span style="font-weight:bold">if</span> err != <span style="font-weight:bold">nil</span> {
+		<span style="font-weight:bold">return</span> err
+	}
+	<span style="font-weight:bold">defer</span> f.Close()
+
+	<span style="font-weight:bold">return</span> f.Close()
+}
+</code></pre></div><h1 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>Using <code>defer</code> doesn&rsquo;t mean that you can&rsquo;t check for possible errors from the <em>deferred</em> function call &ndash; with Named Return Values, it is possible to check for them and overwrite the function returned value to pass the error to the caller. If you want to understand more about the topic, check out the: <a href="https://go.dev/blog/defer-panic-and-recover">Defer, Panic, and Recover</a> Go blog post!</p>
+<p>If you have any questions, suggestions or want to discuss the topic even further, <a href="https://twitter.com/feggah_">reach me out on Twitter</a>!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2022 -
+    
+    2023
+     Gabriel Ferreira 
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.39a51230dce2ac866c049b52573e38bf60666af4bc63c1bdf203b9b2d95b1cd6.js" integrity="sha256-OaUSMNzirIZsBJtSVz44v2BmavS8Y8G98gO5stlbHNY="></script>
+    
+
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-35LWRSBSH4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-35LWRSBSH4', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
